@@ -1,0 +1,4 @@
+sources:
+  - name: public
+    tables:
+      - name: pci_{{ var('CODE_INSEE') }}

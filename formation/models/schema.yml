@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: formattage
+    description: "formattage des champs de la donnée brute"
+    config:
+      materialized: table
+      alias: pci_format_{{ var('CODE_INSEE') }}
+    columns:
+      - name: idpar
+        description: "Identifiant de la parcelle"
+        data_tests:
+          - unique
+          - not_null
+      - name: source
+        description: "Source de la donnée"
+        tests:
+          - accepted_values:
+              values: ['PCI']
+  - name: aggregation
+    description: "Indicateurs à la section cadastrale"
+    config:
+      materialized: view
+      alias: section_{{ var('CODE_INSEE') }}
+    columns:
+      - name: section
+        description: "Numéro de section"
+        data_tests:
+          - unique
+          - not_null

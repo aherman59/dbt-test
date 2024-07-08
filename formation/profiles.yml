@@ -1,0 +1,11 @@
+formation:
+  target: local
+  outputs:
+    local:
+      type: postgres
+      host: postgresql-161505.user-aherman
+      user: aherman
+      password: kk0f6xbykj97qdrxa0sa
+      port: 5432
+      dbname: db # or database instead of dbname
+      schema: public
